@@ -1,0 +1,807 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+
+
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    color: white;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+* {
+    outline: none;
+}
+
+
+body {
+    
+}
+
+/* bg image */
+
+
+.bg-pic {   
+    background: url(imgs/bg-pic.jpg)  no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh; 
+ 
+}
+
+.bg-blur {
+    backdrop-filter: blur(8px);
+}
+
+main {
+    margin-top: 0 !important;
+    margin: 0 auto;
+    padding-top: 2em;
+    width: 80%;
+}
+
+.blur {
+    filter: blur(2px);
+}
+
+
+/* nav-bar small screen */
+
+header {
+    position: relative;
+}
+
+.menu-container {
+    position: relative;
+    cursor: pointer;
+    height: 53px;
+    width: 53px;
+    top: 5px;
+    left: 1px;
+    outline: none;
+    z-index: 2;
+}
+
+.menu-btn {
+    width: 40px;
+    height: 5px;
+    background-color: white;
+    position: relative;
+    top: 25px;
+    left: 7px;
+    transition: all .4s;
+}
+
+.menu-btn::before {
+    content: '';
+    width: 40px;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    transition: all .4s;
+}
+
+.menu-btn::after {
+    content: '';
+    width: 40px;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transition: all .4s;
+}
+
+.menu-container:hover {
+    background-color: rgba(215, 155, 102, 0.6);
+    border-radius: 50%;
+    transition: background-color .4s;
+}
+
+
+
+ .active .menu-btn::after {
+    transform: rotateZ(45deg) translate(-7px, -7px);
+}
+
+.active .menu-btn::before {
+    transform: rotateZ(-45deg) translate(-7px, 7px);
+}
+
+.active .menu-btn {
+    background: transparent;
+}
+
+
+#menu {
+    position: absolute;
+    width: 80px;
+    height: calc(100vh - 63px);
+    background-color: rgba(0, 0, 0, 0.8);;
+    margin: -60px 0 0 -30px;
+    padding: 70px 50px 0;
+    transform-origin: 0% 0%;
+    transform: translate(-120%, 0);
+    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+    border-bottom-right-radius: 10px;
+}
+
+#menu-bar .on {
+    transform: none;
+}
+
+#menu li {
+    list-style-type: none;
+    margin-top: 10px;
+    border-top: 1px solid white;
+    padding-top: 5px;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+#menu li:hover {
+    transform: scale(1.2);
+}
+
+
+
+
+/* logo & animation */
+
+#logo {
+    text-align: center;
+}
+
+#logo svg {
+    width: 100px;
+    height: 100px;
+}
+
+#Curve {
+    stroke-dasharray: 1597.9px;
+    stroke-dashoffset: 1597.9px;
+}
+
+#middle {
+    stroke-dasharray: 178.5px;
+    stroke-dashoffset: 178.5px;
+}
+
+/* logo class which will remove after the web load */
+.logo-anim path {
+    animation: fill 1s forwards;
+}
+
+.logo-anim #outerCircle {
+    animation: disp 3.4s forwards ease-in-out ;
+}
+
+.logo-anim #Curve {
+    animation: lineAnimation 2.5s ease forwards, fill 1s forwards 2s;
+}
+
+.logo-anim #middle {
+    animation: lineAnimation 1.5s ease forwards .8s, fill 1s forwards 1.9s;
+}
+
+
+@keyframes disp{
+    0% {
+        opacity: 0;
+    } 
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes lineAnimation{
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill{
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: white;
+    }
+}
+
+
+/* lines */
+
+.line {
+    height: 40px;
+    text-align: center;
+    width: 95%;
+    margin: -7px auto 0;
+}
+
+.line:nth-child(4) {
+    margin-top: 0;
+}
+
+.middle-part {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.lines {
+    border-left: 1px solid white;
+    height: 40px;
+    margin: 0 auto;
+    width: 1px;
+}
+
+/* middle part  */
+
+.middle-part {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.middle-part h1, h3 {
+    width: 95%;
+    margin: .5em auto; 
+}
+
+.middle-part h1, .middle-part h3 {
+    letter-spacing: 2px;
+}
+
+
+@keyframes mainHide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes mainShow {
+    from {
+        opacity: 0;
+    } 
+    to {
+        opacity: 1;
+    }
+}
+
+.hide {
+    animation: mainHide .8s ease;
+}
+
+.show {
+    animation: mainShow 1s ease; 
+}
+
+.webLoad {
+    animation: disp 4.3s forwards ease-in-out ;
+}
+
+
+/* bottom list */
+
+.bottom-list {
+    margin: 0 auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.bottom-list ul {
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 0;
+    align-items: center;
+}
+
+.bottom-list li {
+    list-style-type: none;
+    padding-top: 1px;
+    width: 33%;
+    font-size: 18px;
+    height: 25px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    cursor: pointer;
+    transition: 0.8s;
+    position: relative;
+    z-index: 1;
+}
+
+.bottom-list li:hover {
+    color: #0E162C;
+}
+
+
+.bottom-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: white;
+    z-index: -1;
+    top: 0;
+    border-radius: 0 0 50% 50%;
+    transition: 0.8s;
+}
+
+.bottom-list li:hover::before {
+    height: 180%;
+}
+
+.bottom-list li:first-child {
+    margin-left: -4px;
+}
+
+.bottom-list li:nth-child(2) {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.bottom-list li:last-child {
+    margin-right: -4px;
+}
+
+
+
+/* Modal */
+
+#modal {
+    background-color: rgba(243, 187, 117, 0.1);
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;   
+    display: none;
+}
+
+
+.modal-content {
+    background-color: rgba(14, 22, 44, 0.9);
+    margin: 15% auto;
+    width: 90%;
+    max-width: 665px;
+    border-radius: 10px;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.modal-header {
+    float: left;
+    font-size: 20px;
+    margin: 7px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 1px solid white;
+    width: auto;
+}
+
+.clear::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.modal-content p {
+    font-size: 15px;
+    margin: 1em .8em;
+    letter-spacing: 1px;
+}
+
+#About, #Project, #Contact {
+    animation: disp .7s ease-in-out;
+    display: none;
+}
+
+/* about part */
+
+#About {
+    display: none;
+}
+
+#About h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid white;
+    width: 210px;
+    margin: 2em .8em 1em;
+}
+
+.skills img {
+    width: 50px;
+    height: 40px;
+    margin: 8px;
+}
+
+.skills img:nth-child(7) {
+    width: 65px;
+}
+
+.note {
+    font-size: 12px !important;
+    padding-bottom: 1.5em;
+}
+
+.note span {
+    text-decoration: none;
+    color: rgb(244, 196, 114);
+    cursor: pointer;
+}
+
+.note span:before {
+    content: '';
+    position: absolute;
+    width: 0px;
+    height: 1px;
+    display: inline-block;
+    background: rgb(244, 196, 114);
+    transition: 300ms;
+    margin-top: 13.5px;
+}
+
+.note span:hover::before {
+    width: 79.6px;
+}
+
+
+
+/* project part */
+
+.project-part {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#Project {
+    display: none;
+}
+
+.p-title {
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 1px solid white;
+    display: inline-block;
+    width: auto !important;
+    margin: 5px;
+    padding-bottom: 5px;
+}
+
+.portfolio1 {
+    background: url(imgs/portfolioV1.png) center center; 
+}
+
+.portfolio2 {
+    background: url(imgs/regForm.png) center center; 
+}
+
+.portfolio3 {
+    background: url(imgs/WebStyle.png) center center; 
+}
+
+.portfolio4 {
+    background: url(imgs/PhotoGallery.png) center center; 
+}
+
+.portfolio5 {
+    background: url(imgs/guessing.png) center center; 
+}
+
+.portfolio6 {
+    background: url(imgs/webapp.png) center center; 
+}
+
+.portfolio7 {
+    background-image: url(imgs/employee.png) ;
+}
+
+.image-part {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: cover;
+    height: 140px;
+    width: 88%;
+    margin: 5px auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.image-part::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    top: 0;
+    border-radius: 0 0 50% 50%;
+    transition: 0.8s;
+    display: none;
+}
+
+.image-part:hover::before {
+    height: 190%;
+}
+
+.image-part button, .image-part p {
+    display: none;
+    position: absolute;
+    bottom: 15%;
+    z-index: -1;
+}
+
+.image-part p {
+    bottom: 12%;
+}
+
+.image-part .btn-live{
+    left: -30%;
+    transition: .6s;
+}
+
+.image-part .live{
+    left: -35%;
+    transition: .6s;
+}
+
+
+.image-part .btn-code{
+    right: -30%;
+    transition: .6s; 
+}
+
+.image-part .code{
+    right: -35%;
+    transition: .6s; 
+}
+
+.image-part:hover.image-part .btn-live {
+    left: 35%;
+}
+
+.image-part:hover.image-part .live {
+    left: 24%;
+}
+
+.image-part:hover.image-part .btn-code {
+    right: 35%;
+}
+
+.image-part:hover.image-part .code {
+    right: 22%;
+}
+
+.image-part:hover.image-part button, .image-part:hover.image-part p  {
+    z-index: 10;
+    transition: left 1s ease-in-out, right 1s ease-in-out;
+}
+
+.project-part button {
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.project-part button:hover {
+    background-color: rgba(104, 98, 93, 0.6);
+    animation: btnHover 1s ease;
+}
+
+.project-part button img {
+    width: 100%;
+    height: 100%;
+}
+
+
+@keyframes btnHover {
+    0% {
+        transform: scale(.9);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-part {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-part .btn-live {
+    margin-right: 3px; 
+}
+
+.btn-part .btn-code {
+    margin-left: 3px; 
+}
+
+.btn-part .live,  .btn-part .code  {
+    color: white;
+    margin: 5px 0 0;
+}
+
+
+.proj {
+    border-bottom: 1px solid white;
+    width: 90%;
+    margin: 10px auto;
+    padding-bottom: 15px;
+}
+
+.proj:last-child {
+    border-bottom: none;
+}
+
+.proj-info {
+    margin: 1em auto !important;
+    width: 80%;
+}
+
+
+/* Contact part */
+
+#Contact {
+    display: none;
+}
+
+#Contact h3 {
+    margin: 1em;
+}
+
+.cont {
+    text-align: center;
+    height: 25px;
+    margin: 2px;
+}
+
+.cont img {
+    width: 18px;
+    height: 13px;
+    padding-top: 8px;
+}
+
+#Contact p {
+    display: inline-block;
+    margin: 0px 2px 5px 2px;
+}
+
+.social {
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+}
+
+.social a {
+    width: 30px;
+    height: 30px;
+    margin: 1em;    
+}
+
+.social img {
+    width: 40px;
+    height: 35px;
+}
+
+.social img:hover {
+    animation: btnHover 1s ease;
+}
+
+@media(min-width: 400px) {
+
+    .image-part {
+        height: 190px;
+    }
+}
+
+@media(min-width: 500px) {
+
+    .image-part {
+        height: 240px;
+    }
+}
+@media(min-width: 600px) {
+
+    .image-part {
+        height: 290px;
+    }
+
+    .proj-info {
+        width: 75%;
+    }
+}
+
+
+@media(max-width: 727px) {
+
+    .bg-screen {
+        display: none;
+    }
+
+    .bottom-list {
+        display: none;
+    }
+}
+
+
+@media (min-width: 728px) {
+
+    main {
+        padding-top: 3em;
+    }
+
+    #menu-bar, #menu {
+        display: none !important;
+    }
+
+    header {
+        height: 53px;
+    }
+
+    main {
+        max-width: 665px;
+        margin: 53px auto;
+        overflow: hidden;
+    }
+
+
+
+}
+
+@media (min-width: 1024px) {
+
+    .image-part::before {
+        display: block;
+    }
+
+    .image-part button, .image-part p {
+        display: block;       
+    }
+
+    .btn-part {
+        display: none;
+    }
+}
