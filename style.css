@@ -35,10 +35,6 @@ body {
  
 }
 
-.bg-blur {
-    backdrop-filter: blur(8px);
-}
-
 main {
     margin-top: 0 !important;
     margin: 0 auto;
@@ -528,7 +524,6 @@ header {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: cover;
     height: 140px;
     width: 88%;
     margin: 5px auto;
@@ -679,6 +674,10 @@ header {
 .proj-info {
     margin: 1em auto !important;
     width: 80%;
+}
+
+.proj button {
+    cursor: pointer;
 }
 
 
