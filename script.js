@@ -27,8 +27,11 @@ const linkArray = {
     portfolio2 : ["https://sisadm.github.io/Registration-Form/", "https://github.com/sisadm/Registration-Form"],
     portfolio1 : ["https://sisadm.github.io/Portfolio/", "https://github.com/sisadm/Portfolio/tree/gh-pages"],
     portfolio3 : ["https://sisadm.github.io/Web-Style-Guide/", "https://github.com/sisadm/Web-Style-Guide"],
-
 };
+
+console.log(linkArray);
+
+
 const contentArray = [header, main];
 
 
