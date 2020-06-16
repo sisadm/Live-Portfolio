@@ -15,7 +15,20 @@ let Project = document.querySelector('#Project');
 let Contact = document.querySelector('#Contact');
 let bottomUl = document.querySelector('.bottom-list ul');
 let note = document.querySelector('.note');
+let projects = document.querySelectorAll('.proj');
 
+
+
+const linkArray = {
+    portfolio7 : ["https://sisadm.github.io/Employee-Directory/", "https://github.com/sisadm/Employee-Directory"],
+    portfolio6 : ["https://sisadm.github.io/WebApp-Dashboard/webapp/", "https://github.com/sisadm/WebApp-Dashboard/tree/master/webapp"],
+    portfolio5 : ["https://sisadm.github.io/GuessingGame/", "https://github.com/sisadm/GuessingGame"],
+    portfolio4 : ["https://sisadm.github.io/Photo-Gallery/Photo-Gallery/", "https://github.com/sisadm/Photo-Gallery/tree/gh-pages/Photo-Gallery"],
+    portfolio2 : ["https://sisadm.github.io/Registration-Form/", "https://github.com/sisadm/Registration-Form"],
+    portfolio1 : ["https://sisadm.github.io/Portfolio/", "https://github.com/sisadm/Portfolio/tree/gh-pages"],
+    portfolio3 : ["https://sisadm.github.io/Web-Style-Guide/", "https://github.com/sisadm/Web-Style-Guide"],
+
+};
 const contentArray = [header, main];
 
 
@@ -33,7 +46,14 @@ function arrayClassAdd() {
     });
 }
 
-
+function toLink(name, num) {
+    if(num == 0) {
+        window.open(linkArray[name][0]);
+    }
+    else {
+        window.open(linkArray[name][1]);
+    }
+};
 
 function contentDisp() {
     About.style.display = "none";
@@ -43,7 +63,7 @@ function contentDisp() {
 
 
 function webLoadRemove() {
-    for(i = 0; i < webLoad.length; i++) {
+    for(let i = 0; i < webLoad.length; i++) {
         webLoad[i].classList.remove('webLoad');
     }
 }
@@ -53,7 +73,6 @@ function blurAndHide() {
     arrayClassRemove();
     main.classList.add('hide');
     header.classList.add('hide');
-    bgPic.classList.add('bg-blur');
     setTimeout( function() {main.style.display = "none"; header.style.display = "none";}, 750);
 }
 
@@ -61,7 +80,6 @@ function showMainHeader() {
     arrayClassAdd();
     main.classList.remove('hide');
     header.classList.remove('hide');
-    bgPic.classList.remove('bg-blur');
     main.style.display = "block";
     header.style.display = "block";
 }
@@ -154,6 +172,25 @@ note.addEventListener('click', (e) => {
     }
 
 });
+
+
+// click on portfolio buttons
+
+for(let i = 0; i < projects.length; i++) {
+    projects[i].addEventListener('click', (e) => {
+        if(e.target.parentNode.classList.contains('btn-live')) {
+            let parent = e.target.parentNode.parentNode.parentNode;
+            let parentIdNumb = parent.id;
+            toLink(parentIdNumb, 0);
+        }
+        if(e.target.parentNode.classList.contains('btn-code')) {
+            let parent = e.target.parentNode.parentNode.parentNode;
+            let parentIdNumb = parent.id;
+            toLink(parentIdNumb, 1);
+        }
+    });
+}
+
 
 
 // close the modals
