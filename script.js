@@ -29,8 +29,6 @@ const linkArray = {
     portfolio3 : ["https://sisadm.github.io/Web-Style-Guide/", "https://github.com/sisadm/Web-Style-Guide"],
 };
 
-console.log(linkArray);
-
 
 const contentArray = [header, main];
 
